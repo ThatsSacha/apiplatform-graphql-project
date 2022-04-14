@@ -5,7 +5,6 @@ namespace App\Resolver;
 use ApiPlatform\Core\GraphQl\Resolver\MutationResolverInterface;
 use App\Entity\Report;
 use App\Service\ReportService;
-use Doctrine\ORM\EntityManager;
 
 class ReportMutationResolver implements MutationResolverInterface {
     public function __construct(

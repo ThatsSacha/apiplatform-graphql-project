@@ -9,14 +9,19 @@ class ReportService {
     public function __construct(
         private ReportRepository $reportRepository
     ) { }
-
-    public function verifyReportAndSetPost(Report $item): Report {
-        $reports = $this->reportRepository->findBy(['post' => $item->getPost()]);
+    
+    /**
+     * @param Report $report
+     * 
+     * @return Report
+     */
+    public function verifyReportAndSetPost(Report $report): Report {
+        $reports = $this->reportRepository->findBy(['post' => $report->getPost()]);
 
         if (count($reports) === 4) {
-            $item->getPost()->setIsHidden(true);
+            $report->getPost()->setIsHidden(true);
         }
 
-        return $item;
+        return $report;
     }
 }
