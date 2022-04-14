@@ -5,11 +5,14 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\ReportRepository;
 use ApiPlatform\Core\Annotation\ApiResource;
+use App\Resolver\ReportMutationResolver;
 
 #[ORM\Entity(repositoryClass: ReportRepository::class)]
 #[ApiResource(
     graphql: [
-        'create'
+        'create' => [
+            'mutation' => ReportMutationResolver::class
+        ],
     ]
 )]
 class Report

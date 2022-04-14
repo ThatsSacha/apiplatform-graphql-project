@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\PostRepository;
 use ApiPlatform\Core\Annotation\ApiResource;
+use App\Controller\PostController;
 use App\Resolver\PostCollectionResolver;
 
 #[ORM\Entity(repositoryClass: PostRepository::class)]
