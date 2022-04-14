@@ -34,9 +34,6 @@ class Post
     #[ORM\Column(type: 'string', length: 255)]
     private $cover;
 
-    #[ORM\Column(type: 'string', length: 255)]
-    private $teaser;
-
     #[ORM\Column(type: 'boolean')]
     private $isHidden = false;
 
@@ -73,18 +70,6 @@ class Post
     public function setCover(string $cover): self
     {
         $this->cover = $cover;
-
-        return $this;
-    }
-
-    public function getTeaser(): ?string
-    {
-        return $this->teaser;
-    }
-
-    public function setTeaser(string $teaser): self
-    {
-        $this->teaser = $teaser;
 
         return $this;
     }

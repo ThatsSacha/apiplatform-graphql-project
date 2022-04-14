@@ -2,10 +2,16 @@
 
 namespace App\Entity;
 
-use App\Repository\ReportRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ReportRepository;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 #[ORM\Entity(repositoryClass: ReportRepository::class)]
+#[ApiResource(
+    graphql: [
+        'create'
+    ]
+)]
 class Report
 {
     #[ORM\Id]
