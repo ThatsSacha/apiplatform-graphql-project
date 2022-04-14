@@ -13,6 +13,6 @@ class PostCollectionResolver implements QueryCollectionResolverInterface {
 
     public function __invoke(iterable $item, array $context): iterable
     {
-        return $this->postRepository->findAll();
+        return $this->postRepository->findBy(['isHidden' => false]);
     }
 }

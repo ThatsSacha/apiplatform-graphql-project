@@ -13,7 +13,7 @@ use App\Resolver\PostCollectionResolver;
         'item_query',
         'collection_query',
         'create',
-        'findAll' => [
+        'findNotHidden' => [
             'collection_query' => PostCollectionResolver::class,
             'args' => []
         ]
@@ -34,6 +34,9 @@ class Post
 
     #[ORM\Column(type: 'string', length: 255)]
     private $teaser;
+
+    #[ORM\Column(type: 'boolean')]
+    private $isHidden = false;
 
     public function getId(): ?int
     {
@@ -72,6 +75,18 @@ class Post
     public function setTeaser(string $teaser): self
     {
         $this->teaser = $teaser;
+
+        return $this;
+    }
+
+    public function getIsHidden(): ?bool
+    {
+        return $this->isHidden;
+    }
+
+    public function setIsHidden(bool $isHidden): self
+    {
+        $this->isHidden = $isHidden;
 
         return $this;
     }
